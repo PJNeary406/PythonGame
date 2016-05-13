@@ -11,12 +11,12 @@ class Worms():
     def __init__(self):
         self.root = Tk()
         self.sock = ClientSocket.ClientSocket()
-        self.title = Label(root, text="Python Study Group Worms v0.1",fg="black")
-        self.user_name_label = Label(root, text="Username:", fg="black")
-        self.password_name_label = Label(root, text="Password:", fg="black")
-        self.user_name_input = Entry(root)
-        self.password_input = Entry(root)
-        self.input_button = Button(root, text="Login", width=10, command=self.authenticate)
+        self.title = Label(self.root, text="Python Study Group Worms v0.1",fg="black")
+        self.user_name_label = Label(self.root, text="Username:", fg="black")
+        self.password_name_label = Label(self.root, text="Password:", fg="black")
+        self.user_name_input = Entry(self.root)
+        self.password_input = Entry(self.root)
+        self.input_button = Button(self.root, text="Login", width=10, command=self.authenticate)
 
     def init_screen_widgets(self):
 
@@ -27,6 +27,8 @@ class Worms():
         self.user_name_input.place(x=200, y=52)
         self.password_input.place(x=200, y=82)
         self.input_button.place(x=230, y=100)
+        self.sock.connect()
+        self.root.mainloop()
 
     def authenticate(self):
 
@@ -40,8 +42,6 @@ if __name__ == '__main__':
 
     screen = Worms()
     screen.init_screen_widgets()
-    sock.connect()
-    root.mainloop()
 
 
 
